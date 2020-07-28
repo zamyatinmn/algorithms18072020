@@ -30,7 +30,7 @@ public class MyDeque<T> {
         end = nextIndex(end);
     }
 
-    public void insertFront(T item){
+    public void insertFront(T item) {
         if (isFull()) {
             throw new StackOverflowError();
         }
@@ -47,7 +47,7 @@ public class MyDeque<T> {
         return value;
     }
 
-    public T removeBack(){
+    public T removeBack() {
         T value = peekBack();
         size--;
         list[end] = null;
@@ -62,7 +62,7 @@ public class MyDeque<T> {
         return list[begin];
     }
 
-    public T peekBack(){
+    public T peekBack() {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
@@ -73,12 +73,8 @@ public class MyDeque<T> {
         return (index + 1) % list.length;
     }
 
-    private int prevIndex(int index){
-        if (index == 0){
-            return list.length - 1;
-        }else {
-            return index - 1;
-        }
+    private int prevIndex(int index) {
+        return (index - 1 + list.length) % list.length;
     }
 
     public int size() {
@@ -97,7 +93,7 @@ public class MyDeque<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
         if (!isEmpty()) {
-            int i = begin+1;
+            int i = begin + 1;
             while (i != end) {
                 sb.append(list[i]).append(", ");
                 i = nextIndex(i);
