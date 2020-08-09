@@ -21,6 +21,5 @@ public class Main {
         BreadthFirstPath bfp = new BreadthFirstPath(graph, 0);
         System.out.println("Путь " + bfp.pathTo(3));
         System.out.println("Длина пути " + bfp.shortestWay(3));
-
     }
 }
